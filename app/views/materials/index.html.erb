@@ -1,0 +1,8 @@
+
+<a href="/materials/new">Add Advertising Material to Honeycomb database</a><br>
+
+<% if @materials.any? %>
+<%= collection_select(:material, :clock, Material.all, :id, :clock ) %>
+<% else %>
+There are no advertising materials you could deliver
+<% end %>
