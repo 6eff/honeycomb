@@ -12,7 +12,6 @@ feature "Delivering materials" do
       find("#order_material_ids").select(value='WNP/SWCL001/010')
       find("#order_material_ids").select(value='ZDW/EOWW005/010')
       click_on "Create order"
-      save_and_open_page
       expect(page).to have_content "WNP/SWCL001/010"
       expect(page).to have_content "ZDW/EOWW005/010"
     end
