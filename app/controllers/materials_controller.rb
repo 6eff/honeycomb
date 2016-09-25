@@ -6,6 +6,7 @@ class MaterialsController < ApplicationController
 
   def new
     @material = Material.new
+    @orders = Order.all
   end
 
   def create
@@ -21,7 +22,7 @@ class MaterialsController < ApplicationController
   private
 
   def materials_params
-    params.require(:material).permit(:clock)
+    params.require(:material).permit(:clock, :order_ids => [])
   end
 
 end

@@ -35,6 +35,7 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rspec'
   gem 'rspec-rails'
+  gem 'rspec-collection_matchers'
   gem 'capybara'
 end
 

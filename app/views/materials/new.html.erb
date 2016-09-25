@@ -1,5 +1,16 @@
+<% if @material.errors.any? %>
+  <section id="errors" >
+    <h2> <%= pluralize(@material.errors.count, "error") %> prohibited this material from being saved: </h2>
+    <ul>
+      <% @material.errors.full_messages.each do |message| %>
+        <li><%= @material.clock %> <%= message.downcase %></li>
+      <% end %>
+    </ul>
+  </section>
+<% end %>
+
 <%= form_for @material do |f| %>
 <%= f.label :"Add materials" %>
 <%= f.text_field :clock %>
-<%= f.submit('Submit resource') %>
+<%= f.submit('Submit material') %>
 <% end %>

@@ -1,0 +1,9 @@
+<% @orders.each do |order| %>
+<ul>
+  <li> ORDER #<%= order.id %>
+    <% order.materials.each do |material| %>
+    <li><%= material.clock %></li>
+    <% end %>
+  </li>
+</ul>
+<% end %>
