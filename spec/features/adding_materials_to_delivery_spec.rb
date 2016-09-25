@@ -9,9 +9,13 @@ feature "Delivering materials" do
       fill_in "material_clock", with: "ZDW/EOWW005/010"
       click_button "Submit material"
       click_link "Create delivery order"
+      fill_in "Number", with: "XYZ"
+      click_button "Create"
+      click_link "ORDER XYZ"
+      click_link "Edit"
       find("#order_material_ids").select(value='WNP/SWCL001/010')
       find("#order_material_ids").select(value='ZDW/EOWW005/010')
-      click_on "Create order"
+      click_on "Save changes"
       expect(page).to have_content "WNP/SWCL001/010"
       expect(page).to have_content "ZDW/EOWW005/010"
     end
