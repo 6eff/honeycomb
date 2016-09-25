@@ -1,0 +1,32 @@
+<h1>Editing Order #<%= Order.find(params[:id]).number %></h1>
+
+<%= form_for(@order) do |f| %>
+  <% if @order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+      <ul>
+      <% @order.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div>
+     <%= f.label @materials.name %>
+     <%= f.collection_select :material_ids, @materials, :id, :clock, {prompt: true}, {:multiple => true, :name => 'order[material_ids][]', include_hidden: false} -%>
+    </div>
+    <div>
+     <%= f.label @broadcasters.name %>
+      <%= f.collection_select :broadcaster_ids, @broadcasters,:id, :name, {prompt: true}, {:include_hidden => false,:multiple => true, :name => 'order[broadcaster_ids][]'} -%>
+    </div>
+
+  <%= submit_tag -%>
+
+<% end %>
+
+
+
+<%= link_to 'Show', @order %> |
+<%= link_to 'Back', order_path %>

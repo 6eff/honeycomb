@@ -13,8 +13,10 @@
 
 
   <div class="field">
-    <%= collection_select(:order, :material_ids, @materials, :id, :clock,{prompt: "Select materials:"}, {multiple: true, :class => "chzn-select", :style => "width:150px;" }) %>
+    <%= f.label :number -%>
+    <%= f.text_field :number -%>
   </div>
+
   <div class="actions">
     <%= f.submit :id => "Create order"%>
   </div>

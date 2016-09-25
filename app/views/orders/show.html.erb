@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>NUMBER:</strong>
+  <%= @order.number %>
+</p>
+
+<p>
+  <strong>Materials:</strong>
+  <% @order.materials.each do |material| %>
+  <li><%= material.clock %>
+    <% @order.broadcasters.each do |broadcaster| %>
+    <li><%= broadcaster.name %></li>
+    <% end %>
+  </li>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>

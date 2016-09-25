@@ -1,9 +1,10 @@
 <% @orders.each do |order| %>
 <ul>
-  <li> ORDER #<%= order.id %>
+  <%= link_to "ORDER #{order.number}", order %>
     <% order.materials.each do |material| %>
     <li><%= material.clock %></li>
-    <% end %>
-  </li>
+  <% end %>
 </ul>
 <% end %>
+
+<%= link_to "New", new_order_url %>
