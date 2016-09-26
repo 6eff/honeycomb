@@ -2,7 +2,6 @@
   <% if @order.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
-
       <ul>
       <% @order.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -15,9 +14,11 @@
   <div class="field">
     <%= f.label :number -%>
     <%= f.text_field :number -%>
+    <%= f.fields_for(:order_lines) do |ff| %>
+      <%= ff.collection_select(:product_id, Product.all, :id, :name) %>
+      <%= ff.label(:quantity) %>
+      <%= ff.number_field(:quantity) %>
+    <% end %>
   </div>
-
-  <div class="actions">
-    <%= f.submit :id => "Create order"%>
-  </div>
+<%= submit_tag %>
 <% end %>

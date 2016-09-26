@@ -13,14 +13,12 @@
     </div>
   <% end %>
 
-    <div>
-     <%= f.label @materials.name %>
-     <%= f.collection_select :material_ids, @materials, :id, :clock, {prompt: true}, {:multiple => true, :name => 'order[material_ids][]', include_hidden: false} -%>
-    </div>
-    <div>
-     <%= f.label @broadcasters.name %>
-      <%= f.collection_select :broadcaster_ids, @broadcasters,:id, :name, {prompt: true}, {:include_hidden => false,:multiple => true, :name => 'order[broadcaster_ids][]'} -%>
-    </div>
+  <%= f.fields_for(:order_lines) do |ff| %>
+   <%= ff.collection_select(:product_id, Product.all, :id, :name) %>
+   <%= ff.label(:quantity) %>
+   <%= ff.number_field(:quantity) %>
+   <p><%= ff.object.total if ff.object.persisted? %></p>
+  <% end %>
 
   <%= submit_tag -%>
 

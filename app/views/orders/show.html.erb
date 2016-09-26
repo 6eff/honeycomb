@@ -6,14 +6,15 @@
 </p>
 
 <p>
-  <strong>Materials:</strong>
-  <% @order.materials.each do |material| %>
-  <li><%= material.clock %>
-    <% @order.broadcasters.each do |broadcaster| %>
-    <li><%= broadcaster.name %></li>
-    <% end %>
+  <strong>Products:</strong>
+  <% @order.products.each do |product| %>
+  <li><%= product.name %> price: <%= product.price %> q-ty: <%= @order.order_lines.find_by(:product_id => product.id)[:quantity] %>
   </li>
   <% end %>
+
+
+  <strong>Order discounted price:</strong>
+  <%= @order.discount[:discount] %>
 </p>
 
 <%= link_to 'Edit', edit_order_path(@order) %> |
