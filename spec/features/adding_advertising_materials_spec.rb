@@ -1,4 +1,4 @@
-feature "Adding advertising materials" do
+xfeature "Adding advertising materials" do
   context "no advertising materials in database" do
     scenario "agencies can add their materials to Honeycomb" do
       visit "/materials"
