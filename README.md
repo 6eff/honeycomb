@@ -1,24 +1,17 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Not all test passing due to last minute changes.
 
-Things you may want to cover:
+used Rails with Postgres
 
-* Ruby version
+## setup
+* as always clone, cd into cloned dir and run `bundle`
+* then run `rails s`
+* UI is primitive, so you'll need to `Add rpoducts` first
+* when done click `home`
+* click `create order`
+* to view calculated discount click `view`
+* to add more products to order click `edit`
+* discount will be recalulated
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+On second branch there is first attempt with rather more sofistiacted relations, but unfinished.
