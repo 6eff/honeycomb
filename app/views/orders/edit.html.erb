@@ -12,15 +12,20 @@
       </ul>
     </div>
   <% end %>
+  <% @order.products.each do |product| %>
+    <%= f.fields_for(product) do |product_form| %>
+      <div>
+       <%= product_form.label @materials.name %>
+       <%= product_form.collection_select :material_ids, @materials, :id, :clock, {prompt: true}, {:multiple => false, :name => 'order[material_ids][]', include_hidden: false} -%>
+      </div>
+      <div>
+        <%= product_form.label @broadcasters.name %>
+        <%= product_form.collection_select :broadcaster_ids, @broadcasters,:id, :name, {prompt: true}, {:include_hidden => false,:multiple => true, :name => 'product[broadcaster_ids][]'} -%>
+      </div>
+      <%= submit_tag -%>
 
-    <div>
-     <%= f.label @materials.name %>
-     <%= f.collection_select :material_ids, @materials, :id, :clock, {prompt: true}, {:multiple => true, :name => 'order[material_ids][]', include_hidden: false} -%>
-    </div>
-    <div>
-     <%= f.label @broadcasters.name %>
-      <%= f.collection_select :broadcaster_ids, @broadcasters,:id, :name, {prompt: true}, {:include_hidden => false,:multiple => true, :name => 'order[broadcaster_ids][]'} -%>
-    </div>
+    <% end %>
+  <% end %>
 
   <%= submit_tag -%>
 

@@ -5,6 +5,7 @@ class OrdersController < ApplicationController
 
   def new
     @order = Order.new
+    @products = Product.all
   end
 
   def create
@@ -32,7 +33,8 @@ class OrdersController < ApplicationController
     @order = Order.find(id = params[:id])
     @materials = Material.all
     @broadcasters = Broadcaster.all
-    @order.attributes = {'material_ids' => []}.merge(params[:order] || {})
+    @products = Product.all
+    # @order.attributes = {'material_ids' => []}.merge(params[:order] || {})
   end
 
   def show
@@ -41,6 +43,6 @@ class OrdersController < ApplicationController
 
   private
   def order_params
-    params.require(:order).permit(:number, :material_ids => [], :broadcaster_ids => [])
+    params.require(:order).permit(:number, :material_ids => [], :broadcaster_ids => [], :product_ids => [])
   end
 end

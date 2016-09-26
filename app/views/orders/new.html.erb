@@ -15,6 +15,7 @@
   <div class="field">
     <%= f.label :number -%>
     <%= f.text_field :number -%>
+    <%= f.collection_select(:product_ids, @products, :id, :name, {prompt: true}, {:include_hidden => false,:multiple => true, :name => 'order[product_ids][]'} ) %>
   </div>
 
   <div class="actions">
