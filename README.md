@@ -1,7 +1,5 @@
 # README
 
-Not all test passing due to last minute changes.
-
 used Rails with Postgres
 
 ## setup
@@ -14,4 +12,4 @@ used Rails with Postgres
 * to add more products to order click `edit`
 * discount will be recalulated
 
-On second branch there is first attempt with rather more sofistiacted relations, but unfinished.
+
